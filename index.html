@@ -3,552 +3,1401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="محمد نديم مصمم مواقع احترافي متخصص في تصميم الواجهات، 3D، وإدارة السوشال ميديا.">
-
-<meta name="keywords" content="تصميم مواقع, مطور واجهات, 3D, تصميم مواقع احترافية, سوشال ميديا">
-
-<meta name="author" content="محمد نديم">
-
-<meta property="og:title" content="محمد نديم | مصمم مواقع">
-
-<meta property="og:description" content="تصميم مواقع احترافية وواجهات حديثة مع خدمات 3D وإدارة سوشال ميديا">
-
-<meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
-
-<meta property="og:type" content="website">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="محمد نديم مصمم مواقع احترافي متخصص في تصميم الواجهات، 3D، وإدارة السوشال ميديا.">
+    <meta name="keywords" content="تصميم مواقع, مطور واجهات, 3D, تصميم مواقع احترافية, سوشال ميديا">
+    <meta name="author" content="محمد نديم">
+    <meta property="og:title" content="محمد نديم | مصمم مواقع">
+    <meta property="og:description" content="تصميم مواقع احترافية وواجهات حديثة مع خدمات 3D وإدارة سوشال ميديا">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+    <meta property="og:type" content="website">
     <title>محمد نديم الحيدري | مصمم مواقع</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* التنسيقات العامة */
-        body {
-            margin: 0;
-            font-family: 'Cairo', sans-serif;
-            background: #0f0f0f;
-            color: white;
-            scroll-behavior: smooth;
+        /* إعادة تعيين الأنماط والمتغيرات العامة */
+        :root {
+            --bg-primary: #060608;
+            --bg-secondary: #0d0d12;
+            --bg-card: rgba(18, 18, 24, 0.65);
+            --bg-card-hover: rgba(26, 26, 36, 0.85);
+            --accent: #ff5e00;
+            --accent-glow: rgba(255, 94, 0, 0.35);
+            --accent-gradient: linear-gradient(135deg, #ff7b00, #ff3c00);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0ab;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 94, 0, 0.3);
+            --transition-speed: 0.3s;
+            --font-family: 'Cairo', sans-serif;
         }
 
-        /* الهيرو */
-        .hero {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff7b00;
+        }
+
+        /* ترويسات الأقسام */
+        section {
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 40%, #ff8800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* تنسيق الأزرار */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 36px;
+            background: var(--accent-gradient);
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 94, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-25deg);
+            transition: 0.75s;
+        }
+
+        .btn:hover::after {
+            left: 125%;
+        }
+
+        /* شاشة التحميل */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover;
+            background: var(--bg-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s;
+        }
+
+        .spinner-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .spinner::before, .spinner::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-top-color: var(--accent);
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
+
+        .spinner::after {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-top-color: #ffaa00;
+            animation-direction: reverse;
+            animation-duration: 0.8s;
+        }
+
+        .loader-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 1px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* شريط تنقل زجاجي طائر */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 5%;
+            right: 5%;
+            width: 90%;
+            background: rgba(10, 10, 15, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            background: rgba(6, 6, 8, 0.9);
+            padding: 12px 40px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 15px;
+            font-weight: 600;
+            transition: var(--transition-speed);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            transition: var(--transition-speed);
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100%;
+        }
+
+        /* زر القائمة المنسدلة للجوال */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* قسم الهيرو الرئيسي */
+        .hero {
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 40%, rgba(255, 94, 0, 0.08) 0%, var(--bg-primary) 65%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            padding: 120px 20px 60px 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-
-    .hero h1 {
-    font-size: clamp(32px, 6vw, 45px);
-}
-  
-  
-        .hero p {
-            font-size: 18px;
-            color: #ccc;
-            margin-top: 0;
+        /* إضاءات متوهجة في الخلفية */
+        .hero-glow-1 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 94, 0, 0.12) 0%, transparent 70%);
+            top: 20%;
+            left: 10%;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .btn {
-            margin-top: 25px;
-            padding: 14px 40px;
-            background: #ff6600;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
+        .hero-glow-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 94, 0, 0.08) 0%, transparent 70%);
+            bottom: 10%;
+            right: 5%;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .btn:hover {
-            background: #e65c00;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* الخدمات */
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .services {
+        .avatar-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(18, 18, 24, 0.8);
+            border: 2px solid var(--border-color);
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: float 5s ease-in-out infinite;
         }
 
-        .card {
-            background: #1a1a1a;
-            padding: 25px;
-            width: 260px;
-            border-radius: 12px;
-            transition: 0.3s;
-            text-align: center;
+        .avatar-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(8px);
         }
 
-        .card:hover {
-            transform: scale(1.05);
-            background: #222;
-        }
-
-        .card img {
-            margin-bottom: 15px;
-            filter: drop-shadow(0 10px 15px rgba(255, 102, 0, 0.2));
-            max-width: 120px;
+        .avatar-container img {
+            width: 90px;
             height: auto;
+            filter: drop-shadow(0 4px 8px rgba(255, 94, 0, 0.3));
         }
 
-        /* الأعمال */
-        .portfolio {
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 8vw, 64px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 40%, #ff8800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 4vw, 24px);
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            font-weight: 600;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* مؤشر الكتابة التلقائية */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 24px;
+            background-color: var(--accent);
+            margin-right: 4px;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { background-color: transparent }
+            50% { background-color: var(--accent); }
+        }
+
+        .hero p.hero-desc {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 30px auto;
+            line-height: 1.8;
+        }
+
+        /* قسم الخدمات */
+        #services {
+            background-color: var(--bg-secondary);
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(255, 94, 0, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: 0 12px 30px rgba(255, 94, 0, 0.1);
+        }
+
+        .icon-wrapper {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 94, 0, 0.05);
+            border: 1px solid rgba(255, 94, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            transition: var(--transition-speed);
+        }
+
+        .service-card:hover .icon-wrapper {
+            background: rgba(255, 94, 0, 0.1);
+            border-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 94, 0, 0.2);
+        }
+
+        .icon-wrapper img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            transition: var(--transition-speed);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* قسم الأعمال */
+        #portfolio {
+            background-color: var(--bg-primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10, 10, 15, 0.95) 10%, rgba(10, 10, 15, 0.4) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: all var(--transition-speed) ease;
+            z-index: 2;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: 0 15px 35px rgba(255, 94, 0, 0.15);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-tag {
+            align-self: flex-start;
+            background: var(--accent-gradient);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(255, 94, 0, 0.3);
+        }
+
+        .portfolio-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .portfolio-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .portfolio-view-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition-speed);
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .portfolio-item:hover .portfolio-view-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .portfolio-view-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        /* قسم لماذا تختارني */
+        #why-choose-me {
+            background-color: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .portfolio img {
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 35px 25px;
+            width: 280px;
+            text-align: center;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: 0 10px 25px rgba(255, 94, 0, 0.08);
+        }
+
+        .feature-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 94, 0, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--accent);
+            border: 1px solid rgba(255, 94, 0, 0.1);
+            transition: var(--transition-speed);
+        }
+
+        .feature-card:hover .feature-icon-wrapper {
+            background: var(--accent-gradient);
+            color: white;
+            transform: rotateY(180deg);
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .feature-icon-wrapper svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* قسم تواصل معي */
+        #contact {
+            background-color: var(--bg-primary);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 94, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .form-control {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: 0.4s;
-            filter: grayscale(30%);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px;
+            color: white;
+            font-family: var(--font-family);
+            font-size: 16px;
+            transition: all var(--transition-speed) ease;
         }
 
-        .portfolio img:hover {
-            transform: scale(1.03);
-            filter: grayscale(0%);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        .form-control:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px rgba(255, 94, 0, 0.15);
         }
 
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+
+        /* حالات الأخطاء وحركة الاهتزاز للنموذج */
+        .form-control.error {
+            border-color: #ff3333 !important;
+            box-shadow: 0 0 10px rgba(255, 51, 51, 0.15) !important;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        .shake {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            background: var(--accent-gradient);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(255, 94, 0, 0.2);
+            font-family: var(--font-family);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        /* الفوتر */
         footer {
-            background: #000;
-            padding: 20px;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
             text-align: center;
         }
-        
-        /* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    z-index: 1000;
-    box-sizing: border-box;
-}
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff6600;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-    font-weight: bold;
-}
-
-.nav-links li a:hover {
-    color: #ff6600;
-}
-
-/* للجوال */
-@media(max-width:768px){
-    .navbar {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .nav-links {
-        margin-top: 10px;
-        padding: 0;
-    }
-}
-        
-        /* Animation */
-.hidden {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Loader */
-
-#loader{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #0f0f0f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-}
-
-.spinner{
-    width: 70px;
-    height: 70px;
-    border: 8px solid #333;
-    border-top: 8px solid #ff6600;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin{
-    100%{
-        transform: rotate(360deg);
-    }
-}
-
-
-/* تحسينات الجوال */
-
-@media(max-width:768px){
-
-    .hero p{
-        font-size: 16px;
-    }
-
-    .btn{
-        padding: 12px 25px;
-        font-size: 16px;
-    }
-
-    .services{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card{
-        width: 90%;
-    }
-
-    .portfolio{
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio img{
-        height: auto;
-    }
-
-    .logo{
-        margin-bottom: 10px;
-    }
-
-}
-
-        
-    </style>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "محمد نديم",
-  "jobTitle": "مصمم مواقع",
-  "url": "https://mohammed-piroshki-dae9e.netlify.app",
-  "sameAs": [
-    "https://wa.me/967776749452"
-  ],
-  "knowsAbout": [
-    "تصميم مواقع",
-    "Frontend",
-    "3D Design",
-    "Social Media"
-  ]
-}
-</script>
-    
-    
-</head>
-
-<body>
-<!-- Loader -->
-<div id="loader">
-    <div class="spinner"></div>
-</div>
-
-
-  <!-- Navbar -->
-<nav class="navbar">
-    <div class="logo">محمد نديم</div>
-
-    <ul class="nav-links">
-        <li><a href="#">الرئيسية</a></li>
-        <li><a href="#services">الخدمات</a></li>
-        <li><a href="#portfolio">أعمالي</a></li>
-        <li><a href="#contact">تواصل</a></li>
-    </ul>
-</nav>
-  
-
-<div class="hero">
-    
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
-     alt="Developer"
-     style="width: 200px; margin-bottom: 20px;">
-    
-
-    
-    
-    <h1>محمد نديم</h1>
-    <p id="typing"></p>
-    <a href="https://wa.me/967776749452" class="btn">تواصل معي</a>
-</div>
-
-
-
- <section id="services" class="hidden">
- 
-    <h2>خدماتي</h2>
-    <div class="services">
-        <div class="card">
-            <img src=
-          "tsmem.png"
-            alt="Web Design">
-            <h3>تصميم مواقع</h3>
-            <p>واجهات عصرية وتجربة مستخدم فريدة</p>
-        </div>
-
-        <div class="card">
-            <img src="threed.png"
-            alt="3D Design">
-            <h3>تصميم 3D</h3>
-            <p>تجسيد أفكارك في عالم ثلاثي الأبعاد</p>
-        </div>
-
-        <div class="card">
-            <img src=
-            "soshl.png"
-            alt="Social Media">
-            <h3>سوشال ميديا</h3>
-            <p>إدارة احترافية لنمو علامتك التجارية</p>
-        </div>
-    </div>
-</section>
-
-
-  <section id="portfolio" class="hidden" style="background: #111;">
-    <h2>أعمالي</h2>
-    <div class="portfolio">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Web Project">
-
-<img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop" alt="UI Design">
-
-<img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop" alt="Frontend Project">
-      
-        
-    </div>
-</section>
-
-
-<section id="contact" class="hidden" style="background: #151515;">
-    <h2>ليش تختارني؟</h2>
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
-        <div style="background: #222; padding: 20px; border-radius: 10px; width: 200px;">
-            <p>✔ تصميم احترافي</p>
-        </div>
-        <div style="background: #222; padding: 20px; border-radius: 10px; width: 200px;">
-            <p>✔ سرعة تنفيذ</p>
-        </div>
-        <div style="background: #222; padding: 20px; border-radius: 10px; width: 200px;">
-            <p>✔ أفكار إبداعية</p>
-        </div>
-    </div>
-</section>
-
-<section style="padding:60px 20px; background:#111; text-align:center;">
-
-<h2>تواصل معي</h2>
-
-<form onsubmit="sendToWhatsApp(event)"
-style="max-width:500px; margin:auto; display:flex; flex-direction:column; gap:15px;">
-
-<input type="text" id="name" placeholder="اسمك"
-style="padding:15px; border:none; border-radius:10px;">
-
-<textarea id="message" placeholder="اكتب طلبك"
-style="padding:15px; border:none; border-radius:10px; height:150px;"></textarea>
-
-<button type="submit"
-style="padding:15px; border:none; border-radius:10px; background:#ff6600; color:white; font-size:18px;">
-إرسال واتساب
-</button>
-
-</form>
-
-</section>
-
-
-
-<footer>
-    <p>© 2026 محمد نديم</p>
-</footer>
-
-<script>
-
-const hiddenElements = document.querySelectorAll('.hidden');
-
-window.addEventListener('scroll', () => {
-
-    hiddenElements.forEach(el => {
-
-        const elementTop = el.getBoundingClientRect().top;
-
-        if(elementTop < window.innerHeight - 100){
-            el.classList.add('show');
+        footer p {
+            color: var(--text-secondary);
+            font-size: 14px;
         }
 
-    });
+        /* نافذة المعاينة الكبيرة للصور (Lightbox) */
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 4, 6, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-});
+        #lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
 
-</script>
-<script>
+        .lightbox-content {
+            position: relative;
+            max-width: 85%;
+            max-height: 85%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
 
-const texts = [
-    "مصمم واجهات مواقع",
-    "مطور Frontend",
-    "مصمم 3D",
-    "خبير سوشال ميديا"
-];
+        #lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
 
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+        #lightbox-img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
 
-function type(){
+        .lightbox-close {
+            position: absolute;
+            top: -45px;
+            left: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+            transition: var(--transition-speed);
+            line-height: 1;
+        }
 
-    if(count === texts.length){
-        count = 0;
-    }
+        .lightbox-close:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
 
-    currentText = texts[count];
-    letter = currentText.slice(0, ++index);
+        /* كلاسات حركات الظهور عند التمرير */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    document.getElementById("typing").textContent = letter;
+        .reveal-element.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    if(letter.length === currentText.length){
-        count++;
-        index = 0;
+        /* كلاسات التأخير الزمني لتنسيق ظهور العناصر تلو الآخر */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
 
-        setTimeout(type, 1000);
-    } else {
-        setTimeout(type, 100);
-    }
-}
+        /* شاشات الجوال والأجهزة اللوحية */
+        @media (max-width: 991px) {
+            .navbar {
+                padding: 15px 25px;
+            }
+        }
 
-type();
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 20px;
+            }
 
-</script>
+            .navbar {
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+                border-top: none;
+                padding: 15px 20px;
+            }
 
+            .menu-toggle {
+                display: flex;
+            }
 
-<script>
+            /* حركة أيقونة القائمة المنسدلة عند التفعيل */
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
 
-window.addEventListener("load", () => {
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
 
-    document.getElementById("loader").style.display = "none";
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
 
-});
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                width: 75%;
+                height: calc(100vh - 60px);
+                background: rgba(10, 10, 15, 0.98);
+                backdrop-filter: blur(15px);
+                border-left: 1px solid var(--border-color);
+                flex-direction: column;
+                padding: 50px 30px;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 30px;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
 
-</script>
+            .nav-links.active {
+                right: 0;
+            }
 
+            .nav-links li a {
+                font-size: 18px;
+                width: 100%;
+                display: block;
+            }
 
-<div id="lightbox"
-style="display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-z-index:9999;">
+            .hero {
+                padding-top: 140px;
+            }
 
-<img id="lightbox-img"
-style="max-width:90%;
-max-height:90%;
-border-radius:20px;">
+            .contact-container {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- شاشة التحميل -->
+<div id="loader">
+    <div class="spinner-container">
+        <div class="spinner"></div>
+        <div class="loader-text">تحميل التفاصيل...</div>
+    </div>
+</div>
+
+<!-- شريط التنقل الزجاجي الطائر -->
+<nav class="navbar" id="navbar">
+    <a href="#" class="logo">محمد نديم</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="عرض القائمة">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="active">الرئيسية</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#portfolio">أعمالي</a></li>
+        <li><a href="#why-choose-me">لماذا أنا؟</a></li>
+        <li><a href="#contact">تواصل معي</a></li>
+    </ul>
+</nav>
+
+<!-- قسم الهيرو -->
+<header class="hero" id="home">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    
+    <div class="hero-content reveal-element">
+        <div class="avatar-container">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5 Developer">
+        </div>
+        
+        <h1>محمد نديم</h1>
+        
+        <div class="hero-subtitle">
+            <span id="typing"></span>
+            <span class="typing-cursor"></span>
+        </div>
+        
+        <p class="hero-desc">أصنع تجارب رقمية ملهمة ومبتكرة. أدمج بين جمال التصميم وقوة الأداء في تطوير واجهات المواقع، وتصميم النماذج ثلاثية الأبعاد، وإدارة منصات التواصل الاجتماعي لبناء حضور قوي لعلامتك التجارية.</p>
+        
+        <a href="#contact" class="btn">ابدأ مشروعك الآن</a>
+    </div>
+</header>
+
+<!-- قسم الخدمات -->
+<section id="services">
+    <div class="section-header reveal-element">
+        <h2>خدماتي الاحترافية</h2>
+        <p>أقدم خدمات متكاملة وحلولاً مبتكرة مصممة خصيصاً لمساعدتك على التفوق في العالم الرقمي.</p>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card reveal-element delay-100">
+            <div class="icon-wrapper">
+                <img src="tsmem.png" alt="تصميم وتطوير المواقع">
+            </div>
+            <h3>تصميم وتطوير المواقع</h3>
+            <p>بناء واجهات عصرية فائقة السرعة، متوافقة مع جميع الشاشات ومحركات البحث لتمنح زوارك تجربة مستخدم مثالية.</p>
+        </div>
+
+        <div class="service-card reveal-element delay-200">
+            <div class="icon-wrapper">
+                <img src="threed.png" alt="تصميم ثلاثي الأبعاد">
+            </div>
+            <h3>تصميم 3D</h3>
+            <p>تجسيد أفكارك ومنتجاتك في تصاميم ومجسمات ثلاثية الأبعاد مبتكرة ومبهرة بصرياً وبأعلى دقة ممكنة.</p>
+        </div>
+
+        <div class="service-card reveal-element delay-300">
+            <div class="icon-wrapper">
+                <img src="soshl.png" alt="إدارة السوشال ميديا">
+            </div>
+            <h3>إدارة السوشال ميديا</h3>
+            <p>تخطيط وإدارة وتنمية حضور علامتك التجارية على منصات التواصل الاجتماعي بمحتوى جذاب واستراتيجيات مدروسة.</p>
+        </div>
+    </div>
+</section>
+
+<!-- قسم معرض الأعمال -->
+<section id="portfolio">
+    <div class="section-header reveal-element">
+        <h2>معرض أعمالي</h2>
+        <p>نظرة على بعض المشاريع التي تشرفت بالعمل عليها وتطويرها بمزيج من الإبداع والمهارة.</p>
+    </div>
+    
+    <div class="portfolio-grid">
+        <div class="portfolio-item reveal-element delay-100">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="مشروع موقع إلكتروني">
+            <div class="portfolio-view-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </div>
+            <div class="portfolio-overlay">
+                <span class="portfolio-tag">تطوير المواقع</span>
+                <h4 class="portfolio-title">موقع ويب احترافي</h4>
+                <p class="portfolio-desc">تصميم واجهة متطورة واستجابة كاملة للمشروع.</p>
+            </div>
+        </div>
+
+        <div class="portfolio-item reveal-element delay-200">
+            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1200&auto=format&fit=crop" alt="تصميم واجهة مستخدم">
+            <div class="portfolio-view-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </div>
+            <div class="portfolio-overlay">
+                <span class="portfolio-tag">تصميم الواجهات</span>
+                <h4 class="portfolio-title">واجهة تطبيق جوال</h4>
+                <p class="portfolio-desc">دراسة تجربة المستخدم وواجهات عصرية أنيقة.</p>
+            </div>
+        </div>
+
+        <div class="portfolio-item reveal-element delay-300">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop" alt="تطوير واجهة أمامية">
+            <div class="portfolio-view-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </div>
+            <div class="portfolio-overlay">
+                <span class="portfolio-tag">البرمجة والتطوير</span>
+                <h4 class="portfolio-title">تطبيق لوحة تحكم</h4>
+                <p class="portfolio-desc">برمجة سريعة ومتجاوبة مع ربط كامل للبيانات.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قسم لماذا تختارني؟ -->
+<section id="why-choose-me">
+    <div class="section-header reveal-element">
+        <h2>لماذا تختارني لمشروعك؟</h2>
+        <p>ألتزم بأعلى معايير الجودة والسرعة لبناء حلول رقمية مخصصة تضيف قيمة حقيقية لأعمالك.</p>
+    </div>
+    
+    <div class="features-grid">
+        <div class="feature-card reveal-element delay-100">
+            <div class="feature-icon-wrapper">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                </svg>
+            </div>
+            <h3>تصميم احترافي</h3>
+            <p>تصاميم عصرية مخصصة فريدة تعكس هويتك وتتميز بالابتكار والجمالية المريحة للعين.</p>
+        </div>
+
+        <div class="feature-card reveal-element delay-200">
+            <div class="feature-icon-wrapper">
+                <svg viewBox="0 0 24 24">
+                    <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                </svg>
+            </div>
+            <h3>سرعة في التنفيذ</h3>
+            <p>التزام صارم بمواعيد التسليم المحددة مع المحافظة التامة على أعلى معايير الجودة والكفاءة.</p>
+        </div>
+
+        <div class="feature-card reveal-element delay-300">
+            <div class="feature-icon-wrapper">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 3.82 2.66 5.86 3.41 6.94.49.71.59 1.56.59 2.56h7c0-1 .1-1.85.59-2.56.75-1.08 3.41-3.12 3.41-6.94C19.5 5.36 16.14 2 12 2zm-1 20h2c0 .55-.45 1-1 1s-1-.45-1-1zm3-3H10v-1h4v1z"/>
+                </svg>
+            </div>
+            <h3>أفكار إبداعية</h3>
+            <p>أبحث دائماً عن تقديم حلول خارج الصندوق واقتراح مزايا مبتكرة تمنح مشروعك قيمة إضافية.</p>
+        </div>
+    </div>
+</section>
+
+<!-- قسم تواصل معي -->
+<section id="contact">
+    <div class="section-header reveal-element">
+        <h2>تواصل معي</h2>
+        <p>هل لديك فكرة مشروع أو ترغب في مناقشة عمل؟ أرسل لي وسأتواصل معك مباشرة لمناقشتها.</p>
+    </div>
+    
+    <div class="contact-container reveal-element">
+        <form onsubmit="sendToWhatsApp(event)" id="contactForm" novalidate>
+            <div class="form-group">
+                <label for="name">الاسم الكريم</label>
+                <input type="text" id="name" class="form-control" placeholder="ادخل اسمك هنا..." required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">تفاصيل طلبك أو رسالتك</label>
+                <textarea id="message" class="form-control" placeholder="اكتب تفاصيل طلبك أو فكرة مشروعك بالتفصيل..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">
+                إرسال عبر الواتساب
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- الفوتر -->
+<footer>
+    <p>© 2026 محمد نديم الحيدري. جميع الحقوق محفوظة.</p>
+</footer>
+
+<!-- نافذة المعاينة الكبيرة للصور (Lightbox) -->
+<div id="lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose" aria-label="إغلاق">&times;</button>
+        <img id="lightbox-img" src="" alt="عرض تفصيلي للعمل">
+    </div>
 </div>
 
 <script>
+    // 1. منطق شاشة التحميل (Loader)
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    });
 
-const images = document.querySelectorAll(".portfolio img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
+    // 2. شريط التنقل الطائر وتحديد الرابط النشط عند التمرير
+    const navbar = document.getElementById("navbar");
+    const sections = document.querySelectorAll("section, header");
+    const navLinksList = document.querySelectorAll(".nav-links li a");
 
-images.forEach(img => {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
 
-img.addEventListener("click", () => {
+        let currentSectionId = "";
+        sections.forEach(sec => {
+            const secTop = sec.offsetTop;
+            const secHeight = sec.clientHeight;
+            if (window.scrollY >= secTop - 150) {
+                currentSectionId = sec.getAttribute("id") || "";
+            }
+        });
 
-lightbox.style.display = "flex";
-lightboxImg.src = img.src;
+        navLinksList.forEach(link => {
+            link.classList.remove("active");
+            const hrefAttr = link.getAttribute("href");
+            if (hrefAttr === "#" && (currentSectionId === "" || currentSectionId === "home")) {
+                link.classList.add("active");
+            } else if (hrefAttr === `#${currentSectionId}`) {
+                link.classList.add("active");
+            }
+        });
+    });
 
-});
+    // 3. التحكم بالقائمة المنسدلة للجوال
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-});
+    menuToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
 
-lightbox.addEventListener("click", () => {
+    document.addEventListener("click", (e) => {
+        if (!navbar.contains(e.target)) {
+            menuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        }
+    });
 
-lightbox.style.display = "none";
+    navLinksList.forEach(link => {
+        link.addEventListener("click", () => {
+            menuToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+        });
+    });
 
-});
+    // 4. تأثير الكتابة التلقائية الاحترافي (كتابة ومسح تدريجي)
+    const texts = [
+        "مصمم واجهات مواقع محترف",
+        "مطور واجهات أمامية Frontend",
+        "مصمم ومجسمات 3D مبتكر",
+        "خبير تسويق وسوشال ميديا"
+    ];
 
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpan = document.getElementById("typing");
+
+    function typeEffect() {
+        const currentWord = texts[wordIndex];
+        
+        if (isDeleting) {
+            charIndex--;
+        } else {
+            charIndex++;
+        }
+
+        typingSpan.textContent = currentWord.substring(0, charIndex);
+
+        let typingSpeed = 80;
+
+        if (isDeleting) {
+            typingSpeed /= 2; // المسح أسرع بمرتين من الكتابة
+        }
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typingSpeed = 2000; // انتظر قبل البدء بالمسح
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % texts.length;
+            typingSpeed = 500; // انتظر قبل كتابة الكلمة الجديدة
+        }
+
+        setTimeout(typeEffect, typingSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(typeEffect, 1000);
+    });
+
+    // 5. نافذة عرض الأعمال الكبيرة (Lightbox) بتأثير ضبابي
+    const portfolioImages = document.querySelectorAll(".portfolio-item");
+    const lightboxModal = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-img");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    portfolioImages.forEach(item => {
+        item.addEventListener("click", () => {
+            const img = item.querySelector("img");
+            lightboxImage.src = img.src;
+            lightboxModal.classList.add("active");
+            lightboxModal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden"; // منع التمرير في الخلفية
+        });
+    });
+
+    const closeLightboxFunc = () => {
+        lightboxModal.classList.remove("active");
+        lightboxModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = ""; // استعادة التمرير
+        setTimeout(() => {
+            lightboxImage.src = "";
+        }, 300);
+    };
+
+    lightboxClose.addEventListener("click", closeLightboxFunc);
+    lightboxModal.addEventListener("click", (e) => {
+        if (e.target === lightboxModal) {
+            closeLightboxFunc();
+        }
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightboxModal.classList.contains("active")) {
+            closeLightboxFunc();
+        }
+    });
+
+    // 6. التحقق التفاعلي وإرسال الرسالة إلى الواتساب
+    function sendToWhatsApp(event) {
+        event.preventDefault();
+        
+        const form = document.getElementById("contactForm");
+        const nameInput = document.getElementById("name");
+        const messageInput = document.getElementById("message");
+        
+        let hasError = false;
+
+        nameInput.classList.remove("error");
+        messageInput.classList.remove("error");
+        form.classList.remove("shake");
+
+        if (nameInput.value.trim() === "") {
+            nameInput.classList.add("error");
+            hasError = true;
+        }
+        
+        if (messageInput.value.trim() === "") {
+            messageInput.classList.add("error");
+            hasError = true;
+        }
+
+        if (hasError) {
+            form.classList.add("shake");
+            setTimeout(() => {
+                form.classList.remove("shake");
+            }, 500);
+            return;
+        }
+
+        const phone = "967776749452";
+        const name = encodeURIComponent(nameInput.value.trim());
+        const message = encodeURIComponent(messageInput.value.trim());
+
+        const text = `الاسم: ${name}%0Aالطلب: ${message}`;
+        const url = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
+
+        window.open(url, "_blank");
+    }
+
+    // 7. تأثيرات الظهور التدريجي للعناصر عند التمرير (IntersectionObserver)
+    const observerOptions = {
+        root: null,
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const elementsToReveal = document.querySelectorAll(".reveal-element");
+    elementsToReveal.forEach(el => {
+        revealObserver.observe(el);
+    });
 </script>
-
-
-<script>
-function sendToWhatsApp(event){
-
-event.preventDefault();
-
-let name = document.getElementById("name").value;
-let message = document.getElementById("message").value;
-
-let phone = "967776749452";
-
-let url = `https://wa.me/${phone}?text=
-الاسم: ${name}%0A
-الطلب: ${message}`;
-
-window.open(url, "_blank");
-
-}
-
-</script>
-
-
-
 </body>
 </html>
